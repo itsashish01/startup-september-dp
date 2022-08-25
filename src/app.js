@@ -1,4 +1,12 @@
+import { Cloudinary } from '@cloudinary/url-gen';
+import { max } from '@cloudinary/url-gen/actions/roundCorners';
+import { saturation, contrast } from '@cloudinary/url-gen/actions/adjust';
+import { source } from '@cloudinary/url-gen/actions/overlay';
+import { image } from '@cloudinary/url-gen/qualifiers/source';
+import { fill } from '@cloudinary/url-gen/actions/resize';
+
 const buttonUpload = document.getElementById('button-upload');
+const bgImgId = 'ggnkp0jbxri3vhmqgkzf';
 
 const uploadWidget = cloudinary.createUploadWidget(
   {
@@ -19,7 +27,8 @@ const uploadWidget = cloudinary.createUploadWidget(
   },
   (error, result) => {
     if (!error && result && result.event === 'success') {
-      console.log('Done! Here is the image info: ', result.info);
+      const imageId = result.info.public_id;
+      transform(imageId);
     }
   }
 );
@@ -31,3 +40,23 @@ buttonUpload.addEventListener(
   },
   false
 );
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'ashishimages',
+  },
+});
+
+function transform(imageId) {
+  const uploadedImg = cld.image(imageId);
+  // Transformations
+  uploadedImg
+    .resize(fill().height(640).width(640))
+    .adjust(contrast(20))
+    .adjust(saturation(-100))
+    .roundCorners(max())
+    .overlay(source(image(bgImgId)));
+
+  const url = uploadedImg.toURL();
+  console.log(url);
+}
