@@ -4,6 +4,10 @@ const uploadWidget = cloudinary.createUploadWidget(
   {
     cloudName: 'ashishimages',
     uploadPreset: 'ss2022dp',
+    sources: ['local', 'camera'],
+    multiple: false,
+    clientAllowedFormats: 'image',
+    maxImageFileSize: '1500000',
     minImageWidth: 800,
     minImageHeight: 800,
     cropping: true,
