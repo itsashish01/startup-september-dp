@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/dist/output.css">
-  <title>Startup September DP Generator</title>
-</head>
-<body class="bg-slate-50">
-  <div class="container mx-auto p-4 flex flex-col items-center justify-center">
-    <img src="./assets/SSLogo.png" alt="Startup September Logo" class="w-44 mt-4" >
-   
-    <h1 class="mt-8 font-bold text-xl sm:text-2xl text-slate-900">Startup September DP Generator</h1>
-    
-    <ul class="list-decimal mt-4 space-y-1 text-sm sm:text-base">
-      <li>Upload your image (1:1 preferred)</li>
-      <li>Crop your image (if needed)</li>
-      <li>Wait for the magic 🪄</li>
-      <li>Download and You know what to do next 😉</li>
-    </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/output.css" />
+    <title>Startup September DP Generator</title>
+  </head>
+  <body class="bg-slate-50">
+    <div
+      class="container mx-auto p-4 flex flex-col items-center justify-center"
+    >
+      <img
+        src="./assets/SSLogo.png"
+        alt="Startup September Logo"
+        class="w-44 mt-4"
+      />
 
-    <button id="button-upload" class="mt-10 px-4 py-2 rounded-full text-sm bg-slate-800 hover:bg-slate-900 text-white">Upload Image</button>
+      <h1 class="mt-8 font-bold text-xl sm:text-2xl text-slate-900">
+        Startup September DP Generator
+      </h1>
 
-  </div>
+      <ul class="list-decimal mt-4 space-y-1 text-sm sm:text-base">
+        <li>Upload your image (1:1 preferred)</li>
+        <li>Crop your image (if needed)</li>
+        <li>Wait for the magic 🪄</li>
+        <li>Download and You know what to do next 😉</li>
+      </ul>
 
+      <button
+        id="button-upload"
+        class="mt-10 px-4 py-2 rounded-full text-sm bg-slate-800 hover:bg-slate-900 text-white"
+      >
+        Upload Image
+      </button>
 
-  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-  <script src="/src/app.js" type="module" defer></script>
-</body>
+      <div id="img-wrapper" class="mt-10 h-80 w-80"></div>
+      <a
+        id="download-btn"
+        class="mt-10 px-4 py-2 rounded-full text-sm bg-red-500 hover:bg-red-600 text-white opacity-0"
+        >Download</a
+      >
+    </div>
+
+    <script
+      src="https://upload-widget.cloudinary.com/global/all.js"
+      type="text/javascript"
+    ></script>
+    <script src="/src/app.js" type="module" defer></script>
+  </body>
 </html>

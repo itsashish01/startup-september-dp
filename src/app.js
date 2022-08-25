@@ -6,6 +6,8 @@ import { image } from '@cloudinary/url-gen/qualifiers/source';
 import { fill } from '@cloudinary/url-gen/actions/resize';
 
 const buttonUpload = document.getElementById('button-upload');
+const imgWrapper = document.getElementById('img-wrapper');
+const downloadBtn = document.getElementById('download-btn');
 const bgImgId = 'ggnkp0jbxri3vhmqgkzf';
 
 const uploadWidget = cloudinary.createUploadWidget(
@@ -58,5 +60,11 @@ function transform(imageId) {
     .overlay(source(image(bgImgId)));
 
   const url = uploadedImg.toURL();
-  console.log(url);
+
+  const imgElement = document.createElement('img');
+  imgWrapper.append(imgElement);
+  imgElement.src = url;
+
+  downloadBtn.style.opacity = 1;
+  downloadBtn.setAttribute('href', url);
 }
