@@ -1,0 +1,22 @@
+{
+  "name": "startup-september-dp",
+  "version": "1.0.0",
+  "description": "Place for getting your Startup September DP.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsAshish01/startup-september-dp.git"
+  },
+  "author": "Ashish Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsAshish01/startup-september-dp/issues"
+  },
+  "homepage": "https://github.com/itsAshish01/startup-september-dp#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
