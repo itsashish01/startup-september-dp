@@ -65,6 +65,8 @@ function transform(imageId) {
   imgWrapper.append(imgElement);
   imgElement.src = url;
 
-  downloadBtn.style.opacity = 1;
-  downloadBtn.setAttribute('href', url);
+  setTimeout(() => {
+    downloadBtn.style.opacity = 1;
+    downloadBtn.setAttribute('href', url);
+  }, 2500);
 }
