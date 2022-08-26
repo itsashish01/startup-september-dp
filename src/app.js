@@ -9,6 +9,8 @@ import '@lottiefiles/lottie-player';
 const buttonUpload = document.getElementById('button-upload');
 const imgWrapper = document.getElementById('img-wrapper');
 const downloadBtn = document.getElementById('download-btn');
+const lottieWrapper = document.getElementById('lottie-wrapper');
+
 const bgImgId = 'ggnkp0jbxri3vhmqgkzf';
 
 const uploadWidget = cloudinary.createUploadWidget(
@@ -69,5 +71,16 @@ function transform(imageId) {
   setTimeout(() => {
     downloadBtn.style.opacity = 1;
     downloadBtn.setAttribute('href', url);
+    lottieWrapper.insertAdjacentHTML(
+      'afterbegin',
+      `
+    <lottie-player
+    src="https://assets10.lottiefiles.com/packages/lf20_rovf9gzu.json"
+    background="transparent"
+    speed="1"
+    loop
+    autoplay
+  ></lottie-player>`
+    );
   }, 2500);
 }
