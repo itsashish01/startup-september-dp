@@ -4,6 +4,7 @@
   "description": "Place for getting your Startup September DP.",
   "default": "index.html",
   "scripts": {
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
