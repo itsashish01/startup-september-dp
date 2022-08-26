@@ -74,7 +74,7 @@ async function transform(imageId) {
     const imgElement = document.createElement('img');
     imgWrapper.append(imgElement);
     imgElement.src = url;
-  }, 1000);
+  }, 2000);
 
   const profileImg = await fetch(url);
   const imageBlog = await profileImg.blob();
