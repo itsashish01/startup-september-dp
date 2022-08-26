@@ -4,6 +4,7 @@ import { saturation, contrast } from '@cloudinary/url-gen/actions/adjust';
 import { source } from '@cloudinary/url-gen/actions/overlay';
 import { image } from '@cloudinary/url-gen/qualifiers/source';
 import { fill } from '@cloudinary/url-gen/actions/resize';
+import '@lottiefiles/lottie-player';
 
 const buttonUpload = document.getElementById('button-upload');
 const imgWrapper = document.getElementById('img-wrapper');
