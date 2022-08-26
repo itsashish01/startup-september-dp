@@ -10,8 +10,11 @@ const buttonUpload = document.getElementById('button-upload');
 const imgWrapper = document.getElementById('img-wrapper');
 const downloadBtn = document.getElementById('download-btn');
 const lottieWrapper = document.getElementById('lottie-wrapper');
+const spinner = document.getElementById('spinner');
 
 const bgImgId = 'ggnkp0jbxri3vhmqgkzf';
+
+spinner.style.display = 'none';
 
 const uploadWidget = cloudinary.createUploadWidget(
   {
@@ -52,7 +55,9 @@ const cld = new Cloudinary({
   },
 });
 
-function transform(imageId) {
+async function transform(imageId) {
+  spinner.style.display = 'block';
+
   const uploadedImg = cld.image(imageId);
   // Transformations
   uploadedImg
@@ -64,13 +69,22 @@ function transform(imageId) {
 
   const url = uploadedImg.toURL();
 
-  const imgElement = document.createElement('img');
-  imgWrapper.append(imgElement);
-  imgElement.src = url;
+  setTimeout(() => {
+    spinner.style.display = 'none';
+    const imgElement = document.createElement('img');
+    imgWrapper.append(imgElement);
+    imgElement.src = url;
+  }, 1000);
+
+  const profileImg = await fetch(url);
+  const imageBlog = await profileImg.blob();
+  const imageURL = URL.createObjectURL(imageBlog);
 
   setTimeout(() => {
     downloadBtn.style.opacity = 1;
-    downloadBtn.setAttribute('href', url);
+    downloadBtn.href = imageURL;
+    downloadBtn.download = 'profile.png';
+
     lottieWrapper.insertAdjacentHTML(
       'afterbegin',
       `
@@ -82,5 +96,5 @@ function transform(imageId) {
     autoplay
   ></lottie-player>`
     );
-  }, 2500);
+  }, 500);
 }
